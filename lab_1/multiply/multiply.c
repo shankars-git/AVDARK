@@ -19,10 +19,10 @@
 /* Size of the matrices to multiply */
 #ifndef SIZE
 /* Native */
-#define SIZE 1100 
+//#define SIZE 1100 
 /* Simulation */
 //Uncomment Below line for Simulation
-//#define SIZE 550
+#define SIZE 550
 #endif
 
 /* HINT: The Makefile allows you to specify L1 and L2 block sizes as
@@ -55,13 +55,15 @@ matmul_opt()
          * here. It should calculate mat_c := mat_a * mat_b. See
          * matmul_ref() for a reference solution.
          */
- int BLOCK_SIZE = 4; // Block size for matrix multiplication
+ int BLOCK_SIZE = 55; // Block size for matrix multiplication
+ 
+ int en = BLOCK_SIZE * (SIZE/BLOCK_SIZE);
 
  int i, j, k, i1, j1, k1;
 
-    for (i = 0; i < SIZE; i += BLOCK_SIZE) {
-        for (j = 0; j < SIZE; j += BLOCK_SIZE) {
-            for (k = 0; k < SIZE; k += BLOCK_SIZE) {
+    for (i = 0; i < en; i += BLOCK_SIZE) {
+        for (j = 0; j < en; j += BLOCK_SIZE) {
+            for (k = 0; k < en; k += BLOCK_SIZE) {
                 // Multiply the blocks
                 for (i1 = i; i1 < i + BLOCK_SIZE; ++i1) {
                     for (j1 = j; j1 < j + BLOCK_SIZE; ++j1) {
