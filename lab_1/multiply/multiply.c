@@ -18,7 +18,11 @@
 
 /* Size of the matrices to multiply */
 #ifndef SIZE
-#define SIZE 1100
+/* Native */
+#define SIZE 1100 
+/* Simulation */
+//Uncomment Below line for Simulation
+//#define SIZE 550
 #endif
 
 /* HINT: The Makefile allows you to specify L1 and L2 block sizes as
