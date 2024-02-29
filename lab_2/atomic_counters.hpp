@@ -115,8 +115,8 @@ public:
 
 class atomic_counter_atomic_incdec : public atomic_counter {
 private:
-    int m_value; // TODO: Change type
-
+    //int m_value; // TODO: Change type
+    std::atomic<int> m_value;
 public:
     atomic_counter_atomic_incdec();
 
@@ -133,8 +133,8 @@ public:
 
 class atomic_counter_atomic_cas : public atomic_counter {
 private:
-    int m_value; // TODO: Change type
-
+    //int m_value; // TODO: Change type
+    std::atomic<int> m_value;
 public:
     atomic_counter_atomic_cas();
 
