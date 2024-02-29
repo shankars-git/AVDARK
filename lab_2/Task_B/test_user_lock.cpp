@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
     // Test 1: multithreaded increment and decrement
     std::cout << "\n#1: Multithreaded tests\n\n";
     //const int iterations = 50000000;
-    const int iterations = 5000;
+    const int iterations = 50000000;
     int value = 0;
     auto start_time = std::chrono::high_resolution_clock::now();
     std::thread inc_thread(increment_value, lock.get(), 0, &value, iterations);

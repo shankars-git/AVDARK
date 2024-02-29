@@ -1,0 +1,6 @@
+#1: Multithreaded tests
+
+equal inc/dec: SUCCESS
+--> Performance: 3129703 ops/s
+unequal inc/dec: SUCCESS
+All dekker tests finished successfully!
