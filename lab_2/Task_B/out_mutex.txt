@@ -1,0 +1,8 @@
+
+#1: Multithreaded tests
+
+equal inc/dec: SUCCESS
+--> Performance: 6230696 ops/s
+unequal inc/dec: SUCCESS
+All mutex tests finished successfully!
+
