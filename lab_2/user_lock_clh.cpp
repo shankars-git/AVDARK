@@ -17,13 +17,20 @@ void user_lock_clh::lock(int thread_id) {
     local_l *l = &m_local[thread_id];
     // TODO: Implement the lock acquire part of the CLH algorithm here
 
-    (void)l; // TODO: Delete this line
-
+    *(l->local_cell) = true;
+    cell * prev_tail = m_tail.load();
+    while(!m_tail.compare_exchange_weak(prev_tail, l->local_cell)){
+        prev_tail = m_tail.load();
+    }
+    l->previous = prev_tail;
+    while (*(l->previous)) {};
+    
 }
 
 void user_lock_clh::unlock(int thread_id) {
     local_l *l = &m_local[thread_id];
     // TODO: Implement the lock release part of the CLH algorithm here
 
-    (void)l; // TODO: Delete this line
+    *(l->local_cell) = false;
+    l->local_cell    = l->previous;
 }
